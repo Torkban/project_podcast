@@ -1,9 +1,63 @@
+<script>
+import button1 from './button1.vue'
+import tableLinks from './table-links.vue'
+import mainHeader from './main-header.vue'
+import customFooter from './footer2.vue'
+import card from './card.vue'
+
+export default {
+    components: {
+        button1,
+        tableLinks,
+        mainHeader,
+        customFooter,
+        card
+    }
+}
+</script>
+
 <template>
     <head>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat Alternates">
     </head>
     <body>
-      <section class = 'first-page'>
+
+        <section class = 'main-page'>
+            <!-- <button1 message="messdfg"/>
+            <card/> -->
+            <header class = 'top-block'>
+                <a href="" class="top-block__logo">
+                    <img src="../assets/svg/logo.svg" alt="podcast"></a>
+                <nav >
+                <ul class = 'navigation'>
+                    <li>Episodes</li>
+                    <li>About</li>
+                    <li>More</li>
+                </ul>
+                </nav>
+                <input type ='button' value = 'recent episodes' class = 'pButton pButton__inverse pButton__nav'>
+                <input type ='button' value = 'subscribe' class = 'pButton pButton__nav'>
+            </header>
+
+            <h1>Your Daily</h1>
+            <h1>Podcast</h1>
+            <p>We cover all kinds of categories and <br> a weekly special guest.<br><br></p>
+            <input type ='button' value = 'subscribe' class = 'pButton'>
+            <div class = 'karusel'>karusel</div>
+            <div class = 'table-links'>
+                <span class = 'table-links__text'>
+                    <p >Supported by:</p>
+                </span>
+                <div class = 'table-links__logo'>
+                    <div class = 'link-logo'><a href="" class = ''><img src="../assets/svg/spotify.svg" height = '34' alt="Spotify" class = 'link-logo__img'></a></div>
+                    <div class = 'link-logo'><a href="" class = ''><img src="../assets/svg/Google Podcast.svg" height = '36' alt="Google_podcast" class = 'link-logo__img'></a></div>
+                    <div class = 'link-logo'><a href="" class = ''><img src="../assets/svg/Youtube.svg" height = '28' alt="Youtube" class = 'link-logo__img'></a></div>
+                </div>
+
+            </div>
+
+        </section>
+        <section class = 'first-page'>
           <div class = 'title'>
               <h1>Membership benefits</h1>
               <h2>Become our sponsor and get all benefits</h2>
@@ -60,8 +114,8 @@
           </div>
           <input type="button" value = 'see Pricing' class = 'pButton'>
 
-      </section>
-      <section class = 'second-page' >
+        </section>
+        <section class = 'second-page' >
           <div class = 'title'>
               <h1>Recent Episodes</h1>
               <h2>Available on your favorite platform</h2>
@@ -212,7 +266,7 @@
               </div>
           </div>
               <input type="button" value = 'browse all episodes' class = 'pButton'>
-      </section>
+        </section>
     </body>
     <footer>
         <div class = 'footer-grid'>
@@ -271,6 +325,14 @@
 body {
     padding: 0;
     margin: 0;
+    width: 1440px;
+
+}
+
+.main-page {background-color: #F7EDE8;
+width: 1440px;
+padding-top: 24px;
+padding-bottom:140px;
 }
 
 /* @font-face {
@@ -288,7 +350,7 @@ body {
     margin-bottom: 100px;
 }
 
-.image-container {
+/* .image-container {
     width: 78px;
     height: 78px;
     display: flex;
@@ -300,7 +362,7 @@ body {
 
 img {
   align-self: center;
-}
+} */
 
 .first-page {
     color: black;
@@ -339,30 +401,7 @@ h2 {
     margin-bottom: 50px;
 }
 
-.card {
-    display:flex;
-    flex-direction: column;
-    font-family: 'Montserrat Alternates';
-    justify-content: flex-end;                   /* без этого в первой карточке текст съезжает на половину строки, непонятно  */
-    align-items: center;
-    height: 202px;
-    width:373px;
-}
 
-.pButton {
-    border-radius: 5px;
-    color: white;
-    font-size: 14px;
-    text-transform: uppercase;
-    font-family: 'Montserrat Alternates';
-    background-color: black;
-    display: inline-block;
-    padding: 20px;
-    padding-left: 40px;
-    padding-right: 40px;
-    box-shadow: 5px 5px 0 0 rgba(0,0,0, 0.25);
-    margin-bottom: 150px;
-}
 
 .second-page {background-color: #F7EDE8;
 width: 1440px;
@@ -474,153 +513,6 @@ padding-top: 150px;}
     display: flex;
     height: 26px;
     align-items: center;
-}
-
-footer {
-    margin-left: auto;
-    margin-right:auto;
-    border-top: solid 2px gray;
-    width: 1440px;
-    padding: 0;
-    font-family: 'Montserrat Alternates';
-    font-weight: 500;
-}
-
-footer a {
-    font-size: 16px;
-    font-weight: 500;
-}
-
-.footer-grid {
-    display:grid;
-    grid-template-columns: 275 auto auto 375;
-    grid-template-rows: auto;
-    width: 1160;
-    margin-left: 140px;
-    margin-right: 140px;
-    padding-top: 150px;
-    padding-bottom: 150px;
-    /* gap: 100px; */
-}
-
-.footer-grid__sec1 {
-    grid-column: 1;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.footer-grid__podOfCast {
-    /* display: flex;                при включении не работает выравнивание по побочной оси */
-    margin-bottom: 40px;
-}
-
-.podOfCast a {
-    margin-right: 24px;
-}
-
-.footer-grid__sec1 p {
-    margin-bottom: 40px;
-    font-size: 14px;
-}
-
-.footer-grid__sec1-Text {
-    width: 275px;
-}
-
-.footer-grid__icons1 a img {
-    margin-right: 20px;
-}
-
-.footer-grid__sec2 {
-    grid-column: 2;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    justify-content: flex-start;
-}
-
-.footer-grid__sec2 a {
-    margin: 0;
-    margin-bottom: 20px;
-}
-
-.footer-grid__sec3 {
-    grid-column: 3;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.footer-grid__sec3 a {
-    margin: 0;
-    margin-bottom: 20px;
-}
-
-.footer-grid__sec4 {
-    grid-column: 4;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-}
-
-.footer-grid__sec4 p {
-    margin: 0;
-    margin-bottom: 20px;
-}
-
-
-.footer-grid__platforms {
-    margin-bottom: 60px;
-    margin-top: 9px;
-}
-
-.footer-grid__sec4 .platforms {
-    display: flex;
-    justify-content: space-between;
-}
-
-.footer-grid__appShops a img {
-    width: 36px;
-    height: 36px;
-    margin-right: 20px;;
-}
-
-.footer-grid__sec-Bottom {
-    display: flex;
-}
-
-.leftSpace {
-    margin-right: auto;
-}
-
-.p_selected {
-    color: #CD4631;
-}
-
-.footer-grid__sec-Bottom {
-    width: 1160px;
-    border-top: solid 2px gray;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
-    display: flex;
-    font-size: 12px;
-    justify-content: space-between;
-}
-
-.footer-grid__policy {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 10px;
-
-}
-
-.footer-grid__policy a {
-    margin: 0;
-    font-size: 12px;
-    /* margin-left: 10px; */
 }
 
 </style>
