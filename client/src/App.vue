@@ -1,6 +1,5 @@
 <template>
     <Index />
-    <button1 message="messdfg"/>
 </template>
 
 <script setup>

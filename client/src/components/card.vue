@@ -1,9 +1,9 @@
 <template>
     <div class = 'first-card card'>
         <div class = 'card__image-container image-container'>
-            <img src="../assets/svg/doodle.svg" alt="doodle">
+            <img :src= 'src' alt = {{titleText}} >
         </div>
-            <a href="">Topick by Request</a>
+            <a href="">{{titleText}}</a>
             <p>{{text}}</p>
     </div>
 
@@ -15,6 +15,16 @@ export default {
             type: String,
             required: true,
             default: 'smth'
+        },
+        titleText: {
+            type: String,
+            required: true,
+            default: 'link_text'
+        },
+        src: {
+            type: String,
+            required: true,
+            default: '../assets/svg/doodle.svg'
         }
     }
 }

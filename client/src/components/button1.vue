@@ -13,6 +13,7 @@ export default {
     }
 
 }
+
 </script>
 
 <style>
@@ -28,11 +29,11 @@ export default {
     padding-left: 40px;
     padding-right: 40px;
     box-shadow: 5px 5px 0 0 rgba(0,0,0, 0.25);
-    margin-bottom: 150px;
+    /* margin-bottom: 150px; */
     transition-duration: 0.4s;
 }
 
-.pButton__inverse {
+.pButton--inverse {
     color: black;
     background-color: #F7EDE8;
     box-shadow: none;
@@ -43,7 +44,7 @@ export default {
     transform: scale(1.1);
 }
 
-.pButton__nav {
+.pButton--nav {
     margin:0;
     margin-left: 20px;
     padding: 10px;

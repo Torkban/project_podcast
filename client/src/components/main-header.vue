@@ -1,4 +1,30 @@
-<template></template>
+<template>
+ <header class = 'top-block'>
+                <a href="" class="top-block__logo">
+                    <img src="../assets/svg/logo.svg" alt="podcast"></a>
+                <nav >
+                <ul class = 'navigation'>
+                    <li>Episodes</li>
+                    <li>About</li>
+                    <li>More</li>
+                </ul>
+                </nav>
+                <button1 message = 'recent episodes' class = 'pButton--nav pButton--inverse'></button1>
+                <button1 message = 'subscribe' class = 'pButton--nav'></button1>
+                <!-- <input type ='button' value = 'recent episodes' class = 'pButton pButton__inverse pButton__nav'>
+                <input type ='button' value = 'subscribe' class = 'pButton pButton__nav'> -->
+</header>
+</template>
+
+<script>
+import button1 from './button1.vue'
+
+export default {
+    components: {
+        button1
+    }
+}
+</script>
 <style>
 
 .top-block {
@@ -34,7 +60,7 @@ nav {
 }
 li {
     margin-right: 60px;
-
+    list-style-type: none;
 }
 
 </style>
