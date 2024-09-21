@@ -9,10 +9,9 @@
     </div>
 </div>
 </template>
-<script>
-export default {
-    props: {
-        text: {
+<script setup>
+const props = defineProps({
+    text: {
             type: String,
             required: true
         },
@@ -32,18 +31,39 @@ export default {
             type: String,
             required: true
         }
-    }
-
-}
-
+});
+// export default {
+//     props: {
+//         text: {
+//             type: String,
+//             required: true
+//         },
+//         icon_text: {
+//             type: String,
+//             required: true
+//         },
+//         src: {
+//             type: String,
+//             required: true
+//         },
+//         icon_src: {
+//             type: String,
+//             required: true
+//         },
+//         name: {
+//             type: String,
+//             required: true
+//         }
+//     }
+// }
 </script>
 
-<style>
+<style scoped>
 div {
     padding: 0;
 }
 .quote {
-
+    font-size: 22px;
     background-color: #F7EDE8;
 }
 

@@ -48,7 +48,7 @@
         </div>
 
 </template>
-<style>
+<style >
 
 
 footer {

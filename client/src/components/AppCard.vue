@@ -8,10 +8,9 @@
     </div>
 
 </template>
-<script>
-export default {
-    props: {
-        text: {
+<script setup>
+const props = defineProps({
+    text: {
             type: String,
             required: true,
             default: 'smth'
@@ -26,10 +25,28 @@ export default {
             required: true,
             default: '../assets/svg/doodle.svg'
         }
-    }
-}
+});
+// export default {
+//     props: {
+//         text: {
+//             type: String,
+//             required: true,
+//             default: 'smth'
+//         },
+//         titleText: {
+//             type: String,
+//             required: true,
+//             default: 'link_text'
+//         },
+//         src: {
+//             type: String,
+//             required: true,
+//             default: '../assets/svg/doodle.svg'
+//         }
+//     }
+// }
 </script>
-<style>
+<style scoped>
 .card {
     display:flex;
     flex-direction: column;

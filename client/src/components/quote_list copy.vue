@@ -1,67 +1,34 @@
 <template>
-<!-- <div class = 'container'>
-    <div class = 'blue-page__quote-list quote-list'>
-        <quote class="list__quote quote-list__quote " text = 'Lorem ipsum dolor sit amet consectet
-        piscing elit, sed do eiusmod tempor incidi ut labore et dolore magna aliqua.' name = 'Luna lovegood' src = "/src/assets/images/sign_avatar2.png"  icon_src = '/src/assets/svg/spotify1.svg' icon_text = 'Spotify'/>
-        <quote class="list__quote quote-list__quote" text = 'Lorem ipsum dolor sit amet consectet
-        piscing elit, sed do eiusmod tempor incidi ut labore et dolore magna aliqua.' name = 'Emily Blunt' src = "/src/assets/images/sign_avatar3.png" icon_src = '/src/assets/svg/google_podcast_icon.svg' icon_text = 'Google Podcast'/>
-        <quote class="list__quote quote-list__quote" text = 'Lorem ipsum dolor sit amet consectet
-        piscing elit, sed do eiusmod tempor incidi ut labore et dolore magna aliqua.' name = 'Mia Winters' src = "/src/assets/images/sign_avatar4.png" icon_src = '/src/assets/svg/spotify1.svg' icon_text = 'Spotify'/>
-    </div>
-    <input type="button" value="11" class = 'quote-list__button-left'>
-    <input type="button" value="22" class = 'quote-list__button-right'>
-</div> -->
-<!-- <div class = 'container'>
-    <div class = 'blue-page__quote-list quote-list'> -->
-<div class = 'container'>
-    <div class = 'blue-page__quote-list quote-list'>
-        <swiper
-            :slides-per-view="2.5"
-            :space-between="40"
-            :navigation="{
-                prevEl: prev,
-                nextEl: next,
-            }"
-            :pagination="true"
-            :modules="modules"
-        >
-            <swiper-slide><quote class="list__quote quote-list__quote " text = 'Lorem ipsum dolor sit amet consectet
-                piscing elit, sed do eiusmod tempor incidi ut labore et dolore magna aliqua.' name = 'Luna lovegood' src = "/src/assets/images/sign_avatar2.png"  icon_src = '/src/assets/svg/spotify1.svg' icon_text = 'Spotify'/></swiper-slide>
-            <swiper-slide><quote class="list__quote quote-list__quote" text = 'Lorem ipsum dolor sit amet consectet
-                piscing elit, sed do eiusmod tempor incidi ut labore et dolore magna aliqua.' name = 'Emily Blunt' src = "/src/assets/images/sign_avatar3.png" icon_src = '/src/assets/svg/google_podcast_icon.svg' icon_text = 'Google Podcast'/></swiper-slide>
-            <swiper-slide><quote class="list__quote quote-list__quote" text = 'Lorem ipsum dolor sit amet consectet
-                piscing elit, sed do eiusmod tempor incidi ut labore et dolore magna aliqua.' name = 'Mia Winters' src = "/src/assets/images/sign_avatar4.png" icon_src = '/src/assets/svg/spotify1.svg' icon_text = 'Spotify'/></swiper-slide>
-        </swiper>
-            <!-- <div ref="prev" class="swiper-button-prev">prev111111111111</div>
-            <div ref="next" class="swiper-button-next">next</div> -->
-            <button ref="prev" class = 'quote-list__button-left'  type="button"></button>
-            <button ref="next" class = 'quote-list__button-right'  type="button"></button>
-    </div>
-</div>
-<div class='container'>
-    <div class='blue-page__quote-list quote-list'>
-        <swiper
-            ref="mySwiper"
-            :slides-per-view="2.5"
-            :space-between="40"
-            :pagination="true"
-            @swiper="onSwiperInit"
-            :loop = "true"
-        >
-            <swiper-slide v-for="(person, index) in persons" :key="index">
-                <quote class="list__quote quote-list__quote " text = 'Lorem ipsum dolor sit amet consectet
-                piscing elit, sed do eiusmod tempor incidi ut labore et dolore magna aliqua.' :name = "person.name" :src = "person.src" :icon_src = 'person.icon' :icon_text = 'person.iconText'/>
-            </swiper-slide>
-        </swiper>
-    <!-- <div ref="prev" class="swiper-button-prev">prev111111111111</div>
-    <div ref="next" class="swiper-button-next">next</div> -->
-</div>
-<button   class = 'quote-list__button-left' @click="goToPrevSlide" type="button"></button>
-<button  class = 'quote-list__button-right' @click="goToNextSlide" type="button"></button>
-<!-- уточнить по поводу правильной практики создания кнопок, выделение при наведении и нажатии рамок кнопки и кнопки:before работают раздельно -->
-</div>
+    <div class='container'>
+        <div class='blue-page__quote-list quote-list'>
+            <swiper
+                :slides-per-view="2.5"
+                :space-between="40"
+                :navigation="{
+                    prevEl: prev,
+                    nextEl: next,
+                }"
+                :pagination="true"
+                :modules="modules"
+            >
+                <swiper-slide v-for="(person, index) in persons" :key="index">
+                    <quote
+                        class="list__quote quote-list__quote"
+                        text='Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor incidi ut labore et dolore magna aliqua.'
+                        :name="person.name"
+                        :src="person.src"
+                        :icon_src='person.icon'
+                        :icon_text='person.iconText'
+                    />
+                </swiper-slide>
+            </swiper>
 
+            <button ref="prev" class='quote-list__button-left' type="button"></button>
+            <button ref="next" class='quote-list__button-right' type="button"></button>
+        </div>
+    </div>
 </template>
+
 <script >
 import quote from './quote.vue';
 import { ref, onMounted } from 'vue';

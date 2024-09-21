@@ -10,7 +10,7 @@
                 </div>
             </div>
 </template>
-<style>
+<style scoped>
 
 .table-links {
     margin: 140px;

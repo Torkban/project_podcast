@@ -12,62 +12,51 @@
 
 </template>
 <script>
-
-
-
-// const movable = document.querySelectorAll('.slider__items');
-// for (var i = 0; i < movable.length; i++){
-// movable[4].addEventListener('mouseenter', function(event) {
-//     movable.classList.add('left');
-// });
-// }
 export default {
     mounted() {
         var movable = document.querySelectorAll('.slider__items');
             movable[4].addEventListener('mouseenter', () => {
                 for (var i = 0; i < movable.length; i++) {
                     movable[i].style.transform = 'translateX(-273px)';
-                }// Сдвиг вправо на 50 пикселей
+                }
             });
             movable[4].addEventListener('mouseleave', () => {
             for (var i = 0; i < movable.length; i++) {
                 movable[i].style.transform = 'translateX(0)';
-                }// Возвращение на место
+                }
              });
 
              movable[0].addEventListener('mouseenter', () => {
                 for (var i = 0; i < movable.length; i++) {
                     movable[i].style.transform = 'translateX(273px)';
-                }// Сдвиг вправо на 50 пикселей
+                }
             });
             movable[0].addEventListener('mouseleave', () => {
             for (var i = 0; i < movable.length; i++) {
                 movable[i].style.transform = 'translateX(0)';
-                }// Возвращение на место
+                }
              });
-
-
         }
     }
 
 </script>
 <style>
 .sliderContainer {
-    height:373px;
+    height: 373px;
     margin-top: 120px;
-    width:1440px;
+    width: 1440px;
     overflow: hidden;
     position: relative;
-    padding:0;
+    padding: 0;
 }
 
 .slider {
     display: flex;
-    height:373px;
-    width:1945px;
-    position: absolute; /* Позволяет выходить за пределы контейнера */
-    top: 50%; /* Центрирование по вертикали */
-    left: 50%; /* Центрирование по горизонтали */
+    height: 373px;
+    width: 1945px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     justify-content: space-between;
 }
@@ -86,15 +75,14 @@ export default {
 .slider__items p {
     position: absolute;
     color: #81ADC8;
-    position: absolute; /* Абсолютное позиционирование */
-            top: 71%; /* Сдвигаем текст вниз на 50% высоты контейнера */
-            left: 5%;
+    position: absolute;
+    top: 71%;
+    left: 5%;
     font-size: 36px;
     font-weight: 700;
     font-family: 'Montserrat Alternates';
 
 }
-
 
 .left {
     transform: translate(-273px);

@@ -9,19 +9,19 @@
                     <li>More</li>
                 </ul>
                 </nav>
-                <button1 message = 'recent episodes' class = 'pButton--nav pButton--inverse'></button1>
-                <button1 message = 'subscribe' class = 'pButton--nav'></button1>
+                <AppButton invert small>recent episodes</AppButton>
+                <AppButton small>subscribe</AppButton>
                 <!-- <input type ='button' value = 'recent episodes' class = 'pButton pButton__inverse pButton__nav'>
                 <input type ='button' value = 'subscribe' class = 'pButton pButton__nav'> -->
 </header>
 </template>
 
 <script>
-import button1 from './button1.vue'
+import AppButton from './AppButton.vue'
 
 export default {
     components: {
-        button1
+        AppButton
     }
 }
 </script>

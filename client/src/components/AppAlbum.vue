@@ -1,18 +1,16 @@
 <template>
     <div class = 'album'>
         <div class = 'album__content'>
-            <img :src='src' alt="cover">
+            <img :src="album.src" alt="cover">
             <div class = 'album__text-content'>
-                <span class = 'album__episode'>Eps. {{number}}</span>
-                <a href="" class = 'album__title'>{{titleText}}</a>
-                <p class = 'album__description'>{{ text }}</p>
+                <span class = 'album__episode'>Eps. {{album.number}}</span>
+                <a href="" class = 'album__title'>{{album.titleText}}</a>
+                <p class = 'album__description'>{{ album.text }}</p>
             </div>
         </div>
         <div class = 'album__footer'>
                 <div class = 'album__tags'>
-                    <span v-for="(item, index) in tags_list" :key="index" class = 'album__tag tag'>{{ item }}</span>
-                    <!-- <span class = 'album__tag tag'>covid-19</span>
-                    <span class = 'album__tag tag'>health</span> -->
+                    <span v-for="(item, index) in album.tags_list" :key="index" class = 'album__tag tag'>{{ item }}</span>
                 </div>
             <div class= 'album__authors'>
                 <span class = 'album__hosts'>Hosted by:</span>
@@ -24,34 +22,21 @@
         </div>
     </div>
 </template>
-<script>
-export default {
-    props: {
-        titleText: {
-            type: String,
-            required: true,
-            default: 'link_text'
-        },
-        text: {
-            type: String,
-            required: true,
-            default: 'link_text'
-        },
-        src: {
-            type: String,
-            required: true,
-            default: '../assets/svg/doodle.svg'
-        },
-        number: {
-            type: String,
+<script setup>
+const props = defineProps({
+    album: {
+            type: Object,
             required: true
         },
-        tags_list: {
-            type: Array,
-            required:false
-        }
-    },
+});
 
+// export default {
+//     props: {
+//         album: {
+//             type: Object,
+//             required: true
+//         },
+//     },
     // mounted() {
     //     var tags_wrapper = document.querySelector('.album__tags');
     //     var tag = document.createElement('span');
@@ -63,13 +48,10 @@ export default {
     //         tags_wrapper.appendChild(tag);
     //         tag = none;
     //     }
-
-
     // }
-
-}
+// }
 </script>
-<style>
+<style scoped>
 
 .album {
     display:flex;

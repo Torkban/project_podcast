@@ -1,40 +1,3 @@
-<script>
-import button1 from './button1.vue'
-import tableLinks from './table-links.vue'
-import mainHeader from './main-header.vue'
-import customFooter from './footer2.vue'
-import card from './card.vue'
-import albumSlider from './albumSlider.vue'
-import album from './album.vue'
-import quote from './quote.vue'
-import quoteList from './quote_list.vue'
-
-export default {
-    components: {
-        button1,
-        tableLinks,
-        mainHeader,
-        customFooter,
-        card,
-        albumSlider,
-        album,
-        quote,
-        quoteList
-    },
-    data() {
-    return {
-      tags: ["women's"]
-    };
-    },
-    methods: {
-    scrollToSection(sectionId) {
-      const section = document.getElementById(sectionId);
-      section.scrollIntoView({ behavior: 'smooth' });
-    },
-  },
-}
-</script>
-
 <template>
     <head>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat Alternates">
@@ -46,7 +9,7 @@ export default {
             <h1 class = 'mainTitle'>Your Daily</h1>
             <h1 class = 'mainTitle selected'>Podcast</h1>
             <p>We cover all kinds of categories and <br> a weekly special guest.<br><br></p>
-            <button1 message="subscribe"  @click="scrollToSection('part1')"/>
+            <AppButton @click="scrollToSection('part1')">subscribe</AppButton>
             <albumSlider/>
             <tableLinks/>
         </section>
@@ -70,20 +33,15 @@ export default {
                 <h2>Become our sponsor and get all benefits</h2>
             </div>
             <div class = 'first-page__form'>
-                <card titleText = 'Topick by Request' text = 'Lorem ipsum dolor sit amet consectet pis
-                    cing elit, sed do eiusmod tempor.' src = '/src/assets/svg/doodle.svg'/>
-                <card titleText = 'Exclusive Content' text = 'Lorem ipsum dolor sit amet consectet pis
-                    cing elit, sed do eiusmod tempor.' src = '/src/assets/svg/Shining stars.svg'/>
-                <card titleText = 'Join the Community' text = 'Lorem ipsum dolor sit amet consectet pis
-                    cing elit, sed do eiusmod tempor.' src = '/src/assets/svg/Face 1.svg'/>
-                <card titleText = 'Livestreaming Access' text = 'Lorem ipsum dolor sit amet consectet pis
-                    cing elit, sed do eiusmod tempor.' src = '/src/assets/svg/Face 5.svg'/>
-                <card titleText = 'Exclusive Episides & Merch' text = 'Lorem ipsum dolor sit amet consectet pis
-                    cing elit, sed do eiusmod tempor.' src = '/src/assets/svg/Fire.svg'/>
-                <card titleText = 'And much more!' text = 'Lorem ipsum dolor sit amet consectet pis
-                    cing elit, sed do eiusmod tempor.' src = '/src/assets/svg/star.svg'/>
+                <AppCard v-for="(card, index) in cards" :key="index"
+                :titleText="card.titleText"
+                :text="card.text"
+                :src="card.src"
+                />
             </div>
-            <button1 message="see Pricing"/>
+            <AppButton>see pricing</AppButton>
+
+            <!-- Уточнить, как лучше создавать повторяющиеся элементы передавая объекты через пропсы или передавать объект и вызывать его элементы внутри компонента -->
         </section>
         <section class = 'second-page' >
             <div class = 'title'>
@@ -91,20 +49,71 @@ export default {
                 <h2>Available on your favorite platform</h2>
             </div>
             <div class = 'second-page__form'>
-                <album text = 'Lorem ipsum dolor sit amet, consectetur addpiscing elit. Curabitur ac ultricies odio.' titleText = 'Pandemic Becoming Endemic' src = '/src/assets/images/cover1.png'  number = '6'  :tags_list = "['covid-19', 'health']"/>
-                <album text = 'Lorem ipsum dolor sit amet, consectetur addpiscing elit. Curabitur ac ultricies odio.' titleText = 'Tesla Autopilot Controversy' src = '/src/assets/images/cover2.png'  number = '5'  :tags_list = "['automation', 'tech']"/>
-                <album text = 'Lorem ipsum dolor sit amet, consectetur addpiscing elit. Curabitur ac ultricies odio.' titleText = "Women's Right? Is it alright?" src = '/src/assets/images/cover3.png'  number = '4' :tags_list = '["women&#039;s right"]'/>
-                <album text = 'Lorem ipsum dolor sit amet, consectetur addpiscing elit. Curabitur ac ultricies odio.' titleText = 'How to Deal with Self-Confidences' src = '/src/assets/images/cover4.png'  number = '3'  :tags_list = "['self-esteem', 'health']"/>
-                <album text = 'Lorem ipsum dolor sit amet, consectetur addpiscing elit. Curabitur ac ultricies odio.' titleText = 'Type of Social Classes of People' src = '/src/assets/images/cover5.png'  number = '2'  :tags_list = "['social class', 'wealth']"/>
-                <album text = 'Lorem ipsum dolor sit amet, consectetur addpiscing elit. Curabitur ac ultricies odio.' titleText = 'Are you a Perplexed Mind Person?' src = '/src/assets/images/cover6.png'  number = '1'  :tags_list = "['mind behavior', 'health']"/>
+                <AppAlbum v-for="(Album, index) in albums"
+                :key="index"
+                :album="Album"
+                />
             </div>
-                <button1 message="browse all episodes"/>
+                <AppButton>browse all episodes</AppButton>
         </section>
     </body>
     <footer>
-        <customFooter/>
+        <AppFooter/>
     </footer>
 </template>
+
+<script>
+import AppButton from './AppButton.vue'
+import tableLinks from './table-links.vue'
+import mainHeader from './main-header.vue'
+import AppFooter from './AppFooter.vue'
+import AppCard from './AppCard.vue'
+import albumSlider from './albumSlider.vue'
+import AppAlbum from './AppAlbum.vue'
+import quote from './quote.vue'
+import quoteList from './quote_list.vue'
+
+export default {
+    components: {
+        AppButton,
+        tableLinks,
+        mainHeader,
+        AppFooter,
+        AppCard,
+        albumSlider,
+        AppAlbum,
+        quote,
+        quoteList
+    },
+    data() {
+    return {
+        tags: ["women's"],
+        cards: [
+            {titleText:'Topick by Request', text:'Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor.', src:'/src/assets/svg/doodle.svg'},
+            { titleText: 'Exclusive Content', text: 'Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor.', src: '/src/assets/svg/Shining stars.svg' },
+            {titleText:'Join the Community', text:'Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor.', src:'/src/assets/svg/Face 1.svg'},
+            {titleText:'Livestreaming Access', text:'Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor.', src:'/src/assets/svg/Face 5.svg'},
+            {titleText:'Exclusive Episides & Merch', text:'Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor.', src:'/src/assets/svg/Fire.svg'},
+            {titleText:'And much more!', text:'Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor.', src:'/src/assets/svg/star.svg'}
+        ],
+        albums: [
+            {tags_list:['covid-19', 'health'], text:'Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor.', titleText:'Pandemic Becoming Endemic', src:'/src/assets/images/cover1.png', number:'6'},
+            {tags_list: ['automation', 'tech'], text: 'Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor.', titleText:'Tesla Autopilot Controversy', src: '/src/assets/images/cover2.png', number:'5'},
+            {tags_list:["women's right"], text:'Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor.', titleText:"Women's Right? Is it alright?", src:'/src/assets/images/cover3.png', number:'4'},
+            {tags_list:['self-esteem', 'health'], text:'Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor.', titleText:'How to Deal with Self-Confidences' , src:'/src/assets/images/cover4.png', number:'3'},
+            {tags_list:['social class', 'wealth'], text:'Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor.', titleText:'Type of Social Classes of People', src:'/src/assets/images/cover5.png', number:'2'},
+            {tags_list:['mind behavior', 'health'], text:'Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor.', titleText:'Are you a Perplexed Mind Person?', src:'/src/assets/images/cover6.png', number:'1'}
+        ],
+    };
+    },
+    methods: {
+    scrollToSection(sectionId) {
+      const section = document.getElementById(sectionId);
+      section.scrollIntoView({ behavior: 'smooth' });
+    },
+  },
+}
+</script>
 
 <style>
 body {
