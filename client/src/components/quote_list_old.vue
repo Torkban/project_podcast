@@ -175,6 +175,7 @@ export default {
     position: relative;
     height: 468px;
     overflow: hidden;
+    margin:auto;
     margin-top: 100px;
     font-size: 22px;
     /* padding-left: 140px; при включении ломаются пробелы между слайдами */

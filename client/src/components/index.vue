@@ -1,9 +1,8 @@
 <template>
-    <head>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat Alternates">
-    </head>
-    <body>
+    <header>
 
+    </header>
+    <main class ='body'>
         <section class = 'main-page'>
             <mainHeader/>
             <h1 class = 'mainTitle'>Your Daily</h1>
@@ -56,7 +55,7 @@
             </div>
                 <AppButton>browse all episodes</AppButton>
         </section>
-    </body>
+    </main>
     <footer>
         <AppFooter/>
     </footer>
@@ -116,7 +115,7 @@ export default {
 </script>
 
 <style>
-body {
+main {
     padding: 0;
     margin: auto;
     width: 1440px;
