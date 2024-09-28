@@ -1,0 +1,32 @@
+.header {
+    margin: auto;
+    margin-bottom: 64px;
+    padding: auto;
+    width: 1160px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 74px;
+}
+
+.header__logo {
+    padding: 0;
+    margin: 0;
+    margin-right: 123px;
+}
+
+.header__navigation {
+    display: flex;
+    flex-direction: row;
+    font-family: 'Montserrat Alternates';
+}
+
+.header__elements {
+    margin-right: 60px;
+    list-style-type: none;
+}
+
+.header__elements a {
+    font-size: 16px;
+}

@@ -1,0 +1,103 @@
+.album {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Montserrat Alternates';
+    justify-content: space-between;
+    align-items: space-between;
+    height: 221px;
+    border: solid black 2px;
+    border-radius: 12px;
+    padding: 14px;
+    background-color: white;
+}
+
+.album:first-child,
+.album:nth-child(4n),
+.album:nth-child(4n+1) {
+    box-shadow: 10px 10px 0 0 #81ADC8;
+}
+
+.album:first-child .album__title,
+.album:nth-child(4n) .album__title,
+.album:nth-child(4n+1) .album__title {
+    color: #CD4631;
+}
+
+.album__content {
+    display: flex;
+}
+
+.album__text-content {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    justify-content: center;
+    padding: 0;
+    width: 356px;
+}
+
+.album__episode {
+    color: #CD4631;
+    margin-right: auto;
+}
+
+.album__title {
+    text-align: left;
+    margin-right: auto;
+}
+
+.album__description {
+    padding-top: 10px;
+    border-top: solid 2px gray;
+    text-align: left;
+    font-size: 14px;
+}
+
+.album__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.album__tags {
+    display: flex;
+    align-self: center;
+}
+
+.album__authors-icon {
+    display: flex;
+    align-self: center;
+    flex-wrap: wrap;
+}
+
+.album__authors-image {
+    position: relative;
+    right: -5px;
+}
+
+.album__authors-image:nth-child(1) {
+    position: relative;
+    right: -15px;
+}
+
+.tag {
+    border: solid 1px gray;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.album__tag {
+    padding: 6px 12px 6px 12px;
+    margin-right: 6px;
+    align-self: flex-end;
+}
+
+.album__authors {
+    display: flex;
+    height: 26px;
+    align-items: center;
+}
+
+.selected {
+    color: #CD4631;
+}

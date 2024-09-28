@@ -5,14 +5,18 @@
                 :slides-per-view="2.5"
                 :space-between="40"
                 :modules="state.modules"
+                ref="mySwiper"
+                :on-slide-change="updatePadding"
                 :navigation="{
                     prevEl: prev,
                     nextEl: next,
                 }"
                 :pagination="true"
+                :class="['my-swiper', paddingClass]"
+                :style="{ paddingLeft: leftPadding, paddingRight: rightPadding }"
             >
                 <swiper-slide v-for="(person, index) in state.persons" :key="index">
-                    <quote
+                    <Quote
                         class="list__quote quote-list__quote"
                         text='Lorem ipsum dolor sit amet consectet piscing elit, sed do eiusmod tempor incidi ut labore et dolore magna aliqua.'
                         :name="person.name"
@@ -30,7 +34,7 @@
 </template>
 
 <script setup>
-import quote from './quote.vue';
+import Quote from './Quote.vue';
 import { ref, reactive } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Navigation } from 'swiper/modules';
@@ -40,8 +44,23 @@ import 'swiper/swiper-bundle.css';
 
 const prev = ref(null);
 const next = ref(null);
+const swiper = ref("mySwiper");
+const leftPadding = '20px';
+const rightPadding = '20px';
 
+
+const updatePadding = () => {
+    const activeIndex = swiper.activeIndex;
+    if (activeIndex === 0) {
+        paddingClass = 'padding-left';
+    } else if (activeIndex === this.slides.length - 1) {
+        paddingClass = 'padding-right';
+    }
+};
+
+console.log(leftPadding);
 const state = reactive({
+    paddingClass: '.padding-right',
     modules: [Pagination, Navigation],
     persons: [
         {
@@ -84,111 +103,16 @@ const state = reactive({
 })
 </script>
 
-<style scoped>
-.container {
-    position: relative;
-    height: 468px;
-    overflow: hidden;
-    margin-top: 100px;
-    font-size: 22px;
-    /* padding-left: 140px; при включении ломаются пробелы между слайдами */
+<style>
+
+.padding-left {
+    padding-left: 200px;
+    padding-right: 10px;
 }
 
-.blue-page__quote-list {
-    bottom: 108px;
+.padding-right {
+    padding-left: 10px;
+    padding-right: 200px;
 }
 
-.quote-list >>> .quote__text {
-    font-size: 22px;
-    width: 490px;
-}
-
-.quote-list {
-    display: flex;
-    gap: 20px;
-    /* position: absolute; */
-    /* margin-left: 140px; при включении ломаются пробелы между слайдами */
-    transition: 1s;
-}
-
-.quote-list__button-left {
-    position: absolute;
-    bottom: 0px;
-    left: 140px;
-    border-radius: 50%;
-    border-width: 2.5px;
-    margin-top: auto;
-    border-color: #000000;
-    padding: 0;
-    height: 35px;
-    width: 35px;
-}
-
-.quote-list__button-left::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    top: 11px;
-    left: 12px;
-    position: absolute;
-    border-top: 3px solid black;
-    border-left: 3px solid black;
-    transform: rotate(-45deg);
-}
-
-.quote-list__button-left:click {
-    transform: translateX(400px);
-}
-
-.quote-list__button-right {
-    position: absolute;
-    bottom: 0px;
-    left: 140px;
-    margin-left: 60px;
-    border-radius: 50%;
-    border-width: 2.5px;
-    border-color: #CD4631;
-    padding: 0;
-    height: 35px;
-    width: 35px;
-}
-
-.quote-list__button-right::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    top: 11px;
-    left: 8px;
-    position: absolute;
-    border-top: 3px solid #CD4631;
-    border-left: 3px solid #CD4631;
-    transform: rotate(135deg);
-}
-
-.quote-list__button-left:hover,
-.quote-list__button-right:hover,
-.quote-list__button-left:hover::before,
-.quote-list__button-right:hover::before {
-    border-color: gray;
-}
-
-.quote-list__quote {
-    height: 360px;
-    width: 570px;
-    /* margin: auto; */
-    /* margin-top: 120px; */
-    font-family: 'Montserrat Alternates';
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding-bottom: 40px;
-    gap: 40px;
-    text-align: left;
-    font-size: 22px;
-}
-
-.quote__sign {
-    margin-left: 40px;
-    align-self: start;
-}
 </style>

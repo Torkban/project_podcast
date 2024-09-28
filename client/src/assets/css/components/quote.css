@@ -1,0 +1,43 @@
+.quote {
+    font-size: 22px;
+    background-color: #F7EDE8;
+    padding: 0;
+    padding-bottom: 40px;
+}
+
+.white-page__quote {
+    margin: auto;
+    margin-top: 120px;
+    font-family: 'Montserrat Alternates';
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    gap: 40px;
+    width: 1160px;
+    height: 366px;
+}
+
+.quote__text {
+    font-size: 37px;
+    align-self: center;
+    padding: 0;
+    margin: 0;
+    width: 700px;
+}
+
+.quote__sign {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.quote__sign img:last-child {
+    width: 16px;
+}
+
+.quote__sign img:first-child {
+    border-radius: 50%;
+    width: 48px;
+}

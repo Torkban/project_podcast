@@ -1,0 +1,104 @@
+.container {
+    position: relative;
+    height: 468px;
+    overflow: hidden;
+    margin-top: 100px;
+    font-size: 22px;
+    /* padding-left: 140px; при включении ломаются пробелы между слайдами */
+}
+
+.blue-page__quote-list {
+    bottom: 108px;
+}
+
+.quote-list .quote__text {
+    font-size: 22px;
+    width: 490px;
+}
+
+.quote-list {
+    /* margin-left: 140px; при включении ломаются пробелы между слайдами */
+}
+
+.quote-list__button-left {
+    position: absolute;
+    bottom: 0px;
+    left: 140px;
+    border-radius: 50%;
+    border-width: 2.5px;
+    margin-top: auto;
+    border-color: #000000;
+    padding: 0;
+    height: 35px;
+    width: 35px;
+}
+
+.quote-list__button-left::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: 11px;
+    left: 12px;
+    position: absolute;
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    transform: rotate(-45deg);
+}
+
+.quote-list__button-left:click {
+    transform: translateX(400px);
+}
+
+.quote-list__button-right {
+    position: absolute;
+    bottom: 0px;
+    left: 140px;
+    margin-left: 60px;
+    border-radius: 50%;
+    border-width: 2.5px;
+    border-color: #CD4631;
+    padding: 0;
+    height: 35px;
+    width: 35px;
+}
+
+.quote-list__button-right::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    top: 11px;
+    left: 8px;
+    position: absolute;
+    border-top: 3px solid #CD4631;
+    border-left: 3px solid #CD4631;
+    transform: rotate(135deg);
+}
+
+.quote-list__button-left:hover,
+.quote-list__button-right:hover,
+.quote-list__button-left:hover::before,
+.quote-list__button-right:hover::before {
+    border-color: gray;
+}
+
+.quote-list .quote__sign {
+    align-self: start;
+}
+
+.quote-list__quote {
+    height: 360px;
+    width: 570px;
+    font-family: 'Montserrat Alternates';
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 40px;
+    gap: 40px;
+    text-align: left;
+    font-size: 22px;
+}
+
+.quote__sign {
+    margin-left: 40px;
+    align-self: start;
+}

@@ -1,0 +1,41 @@
+.sliderContainer {
+    height: 373px;
+    margin-top: 120px;
+    width: 1440px;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+
+.slider {
+    display: flex;
+    height: 373px;
+    width: 1945px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    justify-content: space-between;
+}
+
+.slider__items {
+    height: 373px;
+    width: 373px;
+    position: relative;
+    transition-duration: 0.7s;
+}
+
+.slider__img {
+    height: 373px;
+}
+
+.slider__items p {
+    position: absolute;
+    color: #81ADC8;
+    position: absolute;
+    top: 71%;
+    left: 5%;
+    font-size: 36px;
+    font-weight: 700;
+    font-family: 'Montserrat Alternates';
+}
